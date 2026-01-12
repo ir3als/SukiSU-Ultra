@@ -42,10 +42,10 @@ setup_kernelsu() {
     # Clone the repository
     if [ ! -d "$KERNEL_ROOT/KernelSU" ]; then
         git clone https://github.com/SukiSU-Ultra/SukiSU-Ultra KernelSU
-        git checkout 35659f6b821253a0bb6a3115f083bce5fc56c367
         echo "[+] Repository cloned."
     fi
     cd "$KERNEL_ROOT/KernelSU"
+    git checkout 3e94960c
     git stash && echo "[-] Stashed current changes."
     if [ "$(git status | grep -Po 'v\d+(\.\d+)*' | head -n1)" ]; then
         git checkout main && echo "[-] Switched to main branch."
