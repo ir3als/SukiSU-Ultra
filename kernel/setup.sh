@@ -46,6 +46,7 @@ setup_kernelsu() {
     fi
     cd "$KERNEL_ROOT/KernelSU"
     git checkout 3e94960c
+    git switch -c tmp-builtin-3e94960c
     git stash && echo "[-] Stashed current changes."
     if [ "$(git status | grep -Po 'v\d+(\.\d+)*' | head -n1)" ]; then
         git checkout main && echo "[-] Switched to main branch."
